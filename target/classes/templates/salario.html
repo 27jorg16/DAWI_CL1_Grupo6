@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Calcular Salario Semanal</title>
+    <link th:href="@{/css/bootstrap/bootstrap.css}" rel="stylesheet" />
+</head>
+<body>
+<div class="card">
+    <div class="card-header text-danger">
+        CALCULAR SALARIO SEMANAL
+    </div>
+    <div class="card-body">
+        <form action="/calcularSalario" method="post">
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="horasTrabajadas" name="horasTrabajadas" placeholder=" " required>
+                <label for="horasTrabajadas">Horas Trabajadas:</label>
+            </div>
+            <hr />
+            <button type="submit" class="btn btn-primary">Calcular</button>
+        </form>
+        <div th:if="${salarioSemanal != null}" class="alert alert-success mt-3" role="alert">
+            <h2>Salario Semanal:</h2>
+            <p>El salario semanal es: $<span th:text="${salarioSemanal}"></span></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Tiempo</title>
+    <link th:href="@{/css/bootstrap/bootstrap.css}" rel="stylesheet" />
+</head>
+<body>
+<div class="card">
+    <div class="card-header text-danger">
+        CALCULADORA DE TIEMPO
+    </div>
+    <div class="card-body">
+        <form th:action="@{/calcularMinutos}" method="post" th:object="${tiempoModel}">
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="segundos" name="segundos" placeholder=" " th:field="*{segundos}" required>
+                <label for="segundos">Ingrese el tiempo en segundos:</label>
+            </div>
+            <hr />
+            <button type="submit" class="btn btn-primary">Calcular Minutos</button>
+        </form>
+        <div th:if="${minutos != null}" class="alert alert-success mt-3" role="alert">
+            <span th:text="'Los segundos ingresados corresponden a ' + ${minutos} + ' minutos'"></span>
+        </div>
+    </div>
+</div>
+</body>
+</html>

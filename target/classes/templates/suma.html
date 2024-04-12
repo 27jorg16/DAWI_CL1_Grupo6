@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Suma de Serie</title>
+    <link th:href="@{/css/bootstrap/bootstrap.css}" rel="stylesheet" />
+</head>
+<body>
+<div class="card">
+    <div class="card-header text-danger">
+        CALCULADORA DE SUMA DE SERIE
+    </div>
+    <div class="card-body">
+        <form th:action="@{/calcularSuma}" method="post" th:object="${numeroLimite}">
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="limite" name="limite" placeholder=" " th:field="*{limite}" required>
+                <label for="limite">Ingrese el número límite:</label>
+            </div>
+            <hr />
+            <button type="submit" class="btn btn-primary">Calcular Suma</button>
+        </form>
+        <div th:if="${suma != null}" class="alert alert-success mt-3" role="alert">
+            <span th:text="'La suma de todos los números hasta el límite es: ' + ${suma}"></span>
+        </div>
+    </div>
+</div>
+</body>
+</html>
